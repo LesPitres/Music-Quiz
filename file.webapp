@@ -1,0 +1,23 @@
+{ 
+	"version" : "1.0",
+	
+	"name" : "Music Quiz",
+	"description": " Application to test the musical knowledge of users",
+	"launch_path" : "/index.html",
+	"icons": {
+		"128" : "/images/icon-128.png"
+	},
+	
+	"developer": {
+	"name": "Romin Irani",
+	"url": "http://www.rominirani.com"
+	},
+		
+	"default_locale": "en",
+	"type": "privileged",
+	
+	"permissions": {
+	"systemXHR": { "description": "Required to make Ajax Calls over the Network" }
+	}
+	
+}	
