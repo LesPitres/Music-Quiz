@@ -1,0 +1,13 @@
+{
+    "version": "1.0.0",
+    "name": "Muzic Quiz",
+    "description": "Web app to test the musical knowledge of the user ",
+    "launch_path": "/index.html",
+    "developer": {
+    },
+    "installs_allowed_from": ["*"],
+    "icons": {
+        "60": "/images/small_logo.png",
+        "128": "/images/tall_logo.png"
+    }
+}
