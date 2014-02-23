@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head id="head">
+		<link rel="stylesheet" type="text/css" href="styles/appli_style.css"></link>
+		<script type="text/javascript" src="js/appli.js"></script>
+		<script src="./js/jquery-2.1.0.min.js"></script>
+		
+		<title>Music quiz</title>
+	</head>
+	
+	<!--<body onload="javascript : play_music()">-->
+	<body>
+		<div class="title">
+			Let's play
+		</div>
+		
+		<div id="music"></div>
+		
+		<a href="index.html"><input class="button_menu" value="Menu" type="button"></a>
+		
+		<div class="middle">
+			<input class="ok" type="button" value="PLAY" onClick="javascript:play_music()" />
+			<form class="form" name="game" onsubmit="return valider(this)" method="post">
+				Title: <br/>
+				<input title="Please enter the title of the song" id="title" name="title" type="text" size="30" /><br/><br/><br/>
+				Singer: <br/>
+				<input title="Please enter the singer of the song" id="singer" name="singer" type="text" size="30" /><br/><br/><br/>
+				<input type="button" class="ok" value="OK" onClick="javascript:play_music()"/>
+				<input type="button" class="ok" value="SKIP" onClick="javascript:skip()" />
+				<!--<input class="ok" type="button" value="afficher" onClick="javascript:check()" />-->
+			</form>
+		</div>
+		
+	</body>
+</html>

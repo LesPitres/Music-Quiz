@@ -13,11 +13,7 @@ body{
 	text-align:center;
 	margin-top:0px;
 	font-weight: bold;
-	/*text-decoration:underline;*/
 	border-bottom-style: double;
-	/*filter:alpha(opacity=100);
-   -moz-opacity:1;
-   opacity: 1;*/
 }
 
 a:link{
@@ -62,8 +58,6 @@ a:visited{
 	font-family:comic sans ms;
 	text-align:center;
 	font-weight: bold;
-	/*margin-left:125px;
-	margin-top:65px;*/
 }
 
 .button_zen{
@@ -72,7 +66,7 @@ a:visited{
 	text-align:center;
 	font-weight: bold;
 	margin-left:100px;
-	margin-top:65px;
+	margin-top:30px;
 }
 
 .button_compet{
@@ -88,7 +82,7 @@ a:visited{
 	font-family:comic sans ms;
 	font-style:italic;
 	text-align:center;
-	margin-left:100px;
+	margin-left:150px;
 }
 
 .middle{
@@ -109,4 +103,15 @@ a:visited{
 
 .underline{
 	text-decoration:underline;
+}
+
+.ok{
+	color:#C71585;
+	font-family:comic sans ms;
+	text-align:center;
+	font-weight: bold;
+}
+
+.form{
+	text-align:center;
 }
