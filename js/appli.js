@@ -53,12 +53,13 @@ function valider(form) { // to post the answer
  }
 }
 
-function skip() { // to skip a question
+function quit() { // to return to menu and quit the game
 	//alert(t);
-	var conf = confirm("Are you to skip this question ?");
+	var conf = confirm("Are you to skip this question ? \n Votre score est de : "+localStorage.getItem('score'));
 	if(conf == true){
-		document.location.href="index.html"
-	}
+		triScore(localStorage.getItem('score'));
+		document.location.href="index.html";
+	}	
 }
 
 var count =0; //array.size()
@@ -85,6 +86,7 @@ function search_music(){
 	}
 }
 
+
 function random(){ // to create a random number
 	r_number = Math.floor((Math.random()*count)+1); 
 }
@@ -102,10 +104,9 @@ var chansons = new Array;
 var taille = 0;
 var c = 0;
 var counter = 0;
-
+var first = 0;
 
 function play_music(){ // to play music every ... seconds by reloading game.html
-	
 	compteur++;
 	//console.log("----------------------------------------------------------- "+compteur);
 	var x = readCookie('id_level'); 
@@ -116,10 +117,11 @@ function play_music(){ // to play music every ... seconds by reloading game.html
 	if((a == "compet1") || (a=="compet2") ||(a=="compet3")){
 		if(c>=2){
 			c = 0;
-			deleteCookie('id_level');
-			deleteCookie('level');
-			deleteCookie('chanson');
-			alert("score == "+score);
+			//deleteCookie('id_level');
+			//deleteCookie('level');
+			//deleteCookie('chanson');
+			alert("La chanson était : "+nom_chanson+" \n Votre score est de : "+localStorage.getItem('score'));
+			//alert("score == "+score);
 			//deleteCookie('score');
 			self.location.href='index.html';
 		}
@@ -129,16 +131,23 @@ function play_music(){ // to play music every ... seconds by reloading game.html
 			document.getElementById('music').innerHTML = "";
 			search_music();
 			chansons[compteur]=name;
-			alert("Prêt ??? \n La chanson était : "+nom_chanson);
+			if(first ==0){
+				alert("Prêt ??? ");
+			}
+			else{
+				check();
+				alert("Prêt ??? \n La chanson était : "+nom_chanson+" \n Votre score est de : "+localStorage.getItem('score'));
+			}
+			first++;
+			//alert("Prêt ??? \n La chanson était : "+nom_chanson);
 			random();
 			collect(r_number);
 			createCookie("chanson",name);
 			nom_chanson = readCookie('chanson');
-			//check();
 			document.getElementById('music').innerHTML = "<audio src='"+name+"' autoplay></audio>";
 			clearTimeout(counter);
 		    counter=setTimeout("play_music()", x); 
-			check();	
+			//check();	
 		}
 		
 	}
@@ -147,7 +156,15 @@ function play_music(){ // to play music every ... seconds by reloading game.html
 		document.getElementById('music').innerHTML = "";
 		search_music();
 		chansons[compteur]=name;
-		alert("Prêt ??? \n La chanson était : "+nom_chanson);
+		if(first ==0){
+				alert("Prêt ??? ");
+			}
+			else{
+				check();
+				alert("Prêt ??? \n La chanson était : "+nom_chanson+" \n Votre score est de : "+localStorage.getItem('score'));
+			}
+		first++;
+		//alert("Prêt ??? \n La chanson était : "+nom_chanson);
 		random();
 		collect(r_number);
 		createCookie("chanson",name);
@@ -155,7 +172,7 @@ function play_music(){ // to play music every ... seconds by reloading game.html
 		document.getElementById('music').innerHTML = "<audio src='"+name+"' autoplay></audio>";
 		clearTimeout(counter);
 		counter=setTimeout("play_music()", x); 
-		check();
+		//check();
 		
 	}
 }
@@ -192,19 +209,17 @@ function check(){
 				score = localStorage.getItem('score');
 				score ++;
 				localStorage.setItem('score',score); //récupère la valeur du dernier score
-				alert("CORRECT TITLE "+localStorage.getItem('score'));
+				console.log("CORRECT TITLE "+localStorage.getItem('score'));
 			}
 			else{
-				alert("WRONG TITLE !!!!");
+				console.log("WRONG TITLE !!!!");
 			}
-			//alert("saisie == "+document.game.title.value);
 			document.game.title.value = "";
 		}
 		else{
-			alert("EMPTY TITLE");
+			console.log("EMPTY TITLE");
 		}
 	}
-	
 	
 	if( (level_txt == "zen2") || (level_txt == "compet2") ){ // check level 2
 		if(user_singer != "") {
@@ -212,20 +227,17 @@ function check(){
 				score = localStorage.getItem('score');
 				score ++;
 				localStorage.setItem('score',score); //récupère la valeur du dernier score
-				/*localStorage.setItem('tab_score',score);
-				score5 = localStorage.getItem('tab_score');
-				score5.push(score);*/
-				alert("CORRECT SINGER "+localStorage.getItem('score'));
+				console.log("CORRECT SINGER "+localStorage.getItem('score'));
 				
 			}
 			else{
-				alert("WRONG SINGER !!!!");
+				console.log("WRONG SINGER !!!!");
 			}
 		//alert("saisie == "+document.game.title.value);
 		document.game.singer.value = "";
 		}
 		else{
-			alert("EMPTY SINGER");
+			console.log("EMPTY SINGER");
 		}
 	}
 	
@@ -237,34 +249,27 @@ function check(){
 						score = localStorage.getItem('score');
 						score ++;
 						localStorage.setItem('score',score); //récupère la valeur du dernier score
-						alert("CORRECT TITLE AND CORRECT SINGER "+localStorage.getItem('score'));
+						console.log("CORRECT TITLE AND CORRECT SINGER "+localStorage.getItem('score'));
 					}
 					else{
-						alert("WRONG SINGER !!!!");
+						console.log("WRONG SINGER !!!!");
 					}
 				}
 				else{
-					alert("WRONG TITLE !!!!");
+					console.log("WRONG TITLE !!!!");
 				}
 			}
 			else{
-				alert("EMPTY SINGER");
+				console.log("EMPTY SINGER");
 			}
 		}
 		else{
-			alert("EMPTY TITLE");
+			console.log("EMPTY TITLE");
 		}
 			
 		document.game.title.value = "";
 		document.game.singer.value = "";
 	}
-		
-	
-	
-	
-	
-	//alert("nom artiste suivante "+singer+" \n nom chanson "+song+ " "+songs);
-	//alert("nom chanson précédente "+song);
 }
 
 function choose_level(t){ // to know what level has been chose by the user
@@ -278,7 +283,7 @@ function choose_level(t){ // to know what level has been chose by the user
 	var t2;
 	
 	if(level == txt){
-		t2 =30;
+		t2 =3;
 	}
 	if(level == txt2){
 		t2 =25;
@@ -287,7 +292,7 @@ function choose_level(t){ // to know what level has been chose by the user
 		t2 =20;
 	}
 	if(level == txt4){
-		t2 =30;
+		t2 =3;
 	}
 	if(level == txt5){
 		t2 =25;
@@ -298,40 +303,57 @@ function choose_level(t){ // to know what level has been chose by the user
 	
 	createCookie("id_level",t2);
 	createCookie("level",level);
-	//alert("read cookie "+readCookie('id_level'));
 	localStorage.setItem('score', 0); //pr stockage permanent
-	var tab_score = localStorage.getItem('tab_score'); 
-	if((tab_score == undefined) || (tab_score == null)){
-		localStorage.setItem('tab_score', []); 
-	}
-
+	
 	self.location.href='game.html';
 }
 
 
 function readCookie(name) { // to read a cookie
-	/*var nameEQ = name + "=";
-	var ca = document.cookie.split(';');
-	for(var i=0;i < ca.length;i++) {
-		var c = ca[i];
-		while (c.charAt(0)==' ') c = c.substring(1,c.length);
-		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-	}
-	return null;*/
-	
-	return sessionStorage.getItem(name);
-	 
+	return localStorage.getItem(name);
 }
 
 function createCookie(name, value){ // to create cookie
-	/*var date = new Date(); // use of cookie to keep the id_level value between levels.html and game.html
-	date.setTime(date.getTime()+(2*24*60*60*1000));
-	var expires = "; expires="+date.toGMTString();
-	var expires = "";
-	document.cookie = name+"="+value+expires+"; path=/";*/
-	sessionStorage.setItem(name, value);
+	localStorage.setItem(name, value);
 }
 
 function deleteCookie(name){
-	sessionStorage.removeItem(name);
+	localStorage.removeItem(name);
 }
+
+
+function triScore(score){
+	var i =0;
+	var a=0;
+	var tab_score = localStorage.getItem('tab_score'); 
+	//alert("tab score avant création"+tab_score);
+	if (tab_score.length ==0){
+		localStorage.setItem('tab_score', '3,4,5,2,5'); 
+		//alert("loc stor après création"+localStorage.setItem('tab_score', '3,4,5,2,5'));
+	}
+	var chaine = localStorage.getItem('tab_score'); 
+	var scores = chaine.split(',');
+	
+	scores.sort(); // scores = tableau trié dans ordre croissant
+	
+	if(scores[0]<score){
+		scores[0] = score;
+		scores.sort();
+		localStorage.setItem('tab_score', scores[0]+','+scores[1]+','+scores[2]+','+scores[3]+','+scores[4]);
+	}
+	//alert("liste score "+scores);
+	//localStorage.setItem('liste_score',tab_score); 
+		
+		
+}
+
+function afficherScore(){
+	var ma_chaine = localStorage.getItem('tab_score');
+	var result = ma_chaine.split(',');
+	document.getElementById('score5').innerHTML = "Your best : "+result[4]+".";
+	document.getElementById('score4').innerHTML = "Your second best : "+result[3]+".";
+	document.getElementById('score3').innerHTML = "Your third best : "+result[2]+".";
+	document.getElementById('score2').innerHTML = "Your fourth best : "+result[1]+".";
+	document.getElementById('score1').innerHTML = "Your fifth best : "+result[0]+".";
+}
+
