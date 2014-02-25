@@ -1,29 +1,81 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="styles/appli_style.css"></link>
-		<script type="text/javascript" src="js/appli.js"></script>
-		
-		<title>Music quiz</title>
-	</head>
-	
-	<body onLoad="javasrcipt:afficherScore()">
-		<div class="title">
-			Welcome to Music Quiz
-		</div>
-		
-		<a href="index.html"><input class="button_menu" value="Menu" type="button"></a>
-		
-		<div class="middle">
-			<div id="score5">
-			Your five best scores are : <br/>
-			</div>
-			<div id="score4"></div>
-			<div id="score3"></div>
-			<div id="score2"></div>
-			<div id="score1"></div>
-		</div>
-		
-		
-	</body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+<head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Music Quiz</title>
+</head>
+<body style="margin: 1em 5% 1em 5%;background-color:#B7CA79; color:black;" title="EAST Audio">
+<div>
+<div id="titre">
+<h2 style="color: #47032C; text-align: center">Développement d'une WebApp pour Firefox OS</h2><hr>
+<h3 style="color: #47032C">Am&eacute;lie Lef&egrave;vre, Charlotte Saintpierre</h3>
+</div>
+<div id="corps">
+<br>
+<h2 style="color: #47032C">L'application</h2>
+<p>
+Cette application est une Webapp développée pour Firefox OS. Cette application est en fait un jeu qui teste les connaissances musicales d'un utilisateur sur sa bibliothèque musicale.
+
+</p>
+
+</div>
+
+<div>
+<br>
+<h2 style="color: #47032C">Etude de l'existant</h2>
+<p>
+En ce qui concerne ce projet, nous n'avons pas trouvé de projet existant sur le Marketplace de Firefox.
+Nous avons donc créé entièrement l'application.</p>
+
+</div>
+
+<div>
+<br>
+<h2 style="color: #47032C">Les outils et les langages utilisés</h2>
+<p>
+Afin de tester l'application ainsi que les différentes étapes de développement, nous avons utilisé un simulateur. La version de Firefox OS sur le simulateur est la 1.1 et la version du simulateur est la 4.0.1.
+Les langages utilisés pour ce jeu sont les suivant : le HTML, le CSS et le JavaScript.
+</p>
+
+</div>
+
+<div>
+<br>
+<h2 style="color: #47032C;">Les fonctionnalités</h2>
+<p>
+Le principe du jeu est très simple : l'application questionne l'utilisateur à propos des extraits musicaux, choisit aléatoirement, qu'il entend. Une réponse correcte apporte des points, le but étant d'avoir le score le plus élevé possible.</p>
+<p>
+</p>Il y a six niveaux de difficultés regroupés en deux modes le « Zen Mode » et le « Compet Mode ».
+Le premier mode est un mode sans fin : c'est le « Zen Mode ». Le second joue dix extraits de musique. 
+ Dans chacun des deux modes, il y a trois niveaux : « Level 1 », « Level 2 » et « Level 3 ». Les règles du jeu pour les niveaux sont les mêmes dans les deux modes. C'est-à-dire que l'extrait est joué 30 secondes pour le « Level 1 » du « Zen Mode » et du « Compet Mode » et l'utilisateur doit uniquement donner le titre de l'extrait.
+<p>On a donc des difficultés croissantes en fonction du niveau.
+Le « Level 2 » joue un extrait durant 25 secondes, l'utilisateur doit uniquement saisir le chanteur.
+Le « Level 3 » joue un extrait pendant 20 secondes, l'utilisateur doit donner le titre ainsi que le chanteur.
+</p>
+<p>Une des autres fonctionnalités permet à l'utilisateur de regarder ses cinq meilleurs scores.
+<p/>
+<p>L'application vérifie la saisie de l'utilisateur et incrémente le score à chaque réponse juste.
+<p/>
+</div>
+
+<div>
+<br>
+<h2 style="color: #47032C;">Les problèmes rencontrés</h2>
+<p>Nous avons eu quelques problèmes en ce qui concerne la lecture de la musique par cette version du simulateur. Après conversion des fichiers audio dans le format souhaité, la lecture de la musique n'a plus posé de problème.
+</p>
+
+</div>
+<div>
+<br>
+<h2 style="color: #47032C;">Les limites et améliorations</h2>
+<p>
+Une des amélioration possible serait d'empêcher le mode aléatoire de rejouer une musique déjà écoutée par l'utilisateur.
+Il serait également intéressant de proposer à l'utilisateur de la musique hébergée sur un serveur distant. C'est-à-dire de la musique qu'il n'aurait pas stockée sur son téléphone.
+On pourrait également proposer d'autres niveaux de difficultés.</p>
+
+<p>En ce qui concerne les limites, la carte sd du téléphone offre peut d'espace de stockage.
+</p>
+
+</div>
+</div>
+</body>
 </html>
